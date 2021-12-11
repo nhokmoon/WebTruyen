@@ -13,7 +13,15 @@
             <a class="navbar-brand p-2" href="#">
                 <p class="text-white w-75" style="font-size:xx-large">Moon Cyber Novel</p>
             </a>
+            @using (Html.BeginForm(FormMethod.Get, new { @class= "form-inline" }))
+            {
+                <div class="form-group">
+                    <input type="Text" class="form-control mx-sm-3"  value="@ViewBag.Keyword" name="name" placeholder="Nhập tên sách cần tìm">
+                    <input type="button" class="btn btn-danger" value="Tìm sách">
+                </div><hr/>
+            }
         </div>
+        
     </nav>
     <div class="row p-1 m-1">
         <div id="theloai" class="col-2">
