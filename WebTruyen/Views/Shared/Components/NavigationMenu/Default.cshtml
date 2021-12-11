@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+
+<a class="btn btn-block" asp-action="List" 
+   asp-controller="Truyen" asp-route-theloai="">Home</a>
+@foreach (string theloai in Model)
+{
+    <a class="btn btn-block btn-primary" asp-action="List"
+       asp-controller="Truyen" asp-route-theloai="@theloai">
+        @theloai
+    </a>
+    <br />
+}

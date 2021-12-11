@@ -1,0 +1,42 @@
+﻿@model Truyen
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    @{var PhotoPath = "/images/" + Model.ImageUrl;}
+
+    <div class="card">
+            <img class="card-img-top w-25 mx-auto p-2" src="@PhotoPath" alt="không có hình" />
+        <div class="card-body" style="padding-left:20px">
+            <h3 class="card-title">
+                @Model.TenTruyen
+            </h3>
+            <p class="card-text">
+                @Model.TrangThai
+            </p>
+            <p class="card-text">
+                <a asp-action="List" asp-controller="Truyen" asp-route-theloai="@Model.TheLoai">
+                    @Model.TheLoai
+                </a>
+                
+            </p>
+            <p class="card-text text-danger font-weight-bold">
+                @Model.SoChuong chuong
+            </p>
+            <p class="card-text" style="font-weight:inherit; font-display:auto;font-size:x-large ">
+                @Model.ChuThich
+            </p>
+        </div>
+    </div>
+    <form id="@Model.TruyenId" asp-action="AddTuTruyen" asp-controller="TuTruyen" method="post">
+            <input type="hidden" asp-for="TruyenId" />
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <button type="submit" class="btn btn-success">
+                <svg width="18" height="18" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+                </svg> thêm vào tủ truyện
+            </button>
+        </form>
+</div>

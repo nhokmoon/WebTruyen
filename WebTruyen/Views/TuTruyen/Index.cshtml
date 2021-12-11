@@ -1,0 +1,47 @@
+﻿@model TuTruyenIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>tên truyên</th>
+                <th>trạng thái</th>
+                <th>số chương</th>
+                <th>thể loại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TuTruyen.Items)
+           {
+               var PhotoPath = "/images/" + item.Truyen.ImageUrl;
+               <tr>
+                   <td>
+                       <div>
+                           <img width="50" height="50" src="@PhotoPath"alt="không có hình"/>
+
+                           <a href="https://localhost:44333/Truyen/Details?TruyenId=@item.Truyen.TruyenId">
+                               @item.Truyen.TenTruyen
+                           </a>                           
+                       </div>
+                   </td>
+                   <td>
+                       @item.Truyen.TrangThai
+                   </td>
+                   <td>
+                       @item.Truyen.SoChuong chuong
+                   </td>
+                   <td>
+                       <a asp-action="List" asp-controller="Truyen" asp-route-theloai="@item.Truyen.TheLoai">
+                           @item.Truyen.TheLoai
+                       </a>
+                       
+                   </td>
+               </tr>
+           }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand p-2" href="#">
+                <p class="text-white w-75" style="font-size:xx-large">Moon Cyber Novel</p>
+            </a>
+        </div>
+    </nav>
+    <div class="row p-1 m-1">
+        <div id="theloai" class="col-2">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
