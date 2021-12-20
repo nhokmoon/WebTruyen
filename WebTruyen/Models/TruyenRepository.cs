@@ -10,5 +10,10 @@ namespace WebTruyen.Models
             context = _context;
         }
         public IQueryable<Truyen> Truyens => context.Truyens;
+
+        public Truyen DeleteTruyen(int truyenId)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

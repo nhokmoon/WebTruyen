@@ -5,8 +5,8 @@ namespace WebTruyen.Models
     public interface ITruyenRepository
     {
         IQueryable<Truyen> Truyens { get; }
-        void SaveTruyen(Truyen truyen);
+        //void SaveTruyen(Truyen truyen);
 
-        Truyen DeleteTruyen(int truyenId);
+        //Truyen DeleteTruyen(int truyenId);
     }
 }
