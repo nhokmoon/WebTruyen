@@ -1,0 +1,74 @@
+﻿@model Truyen
+@{ 
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-sm">
+    <form method="post" asp-controller="Admin" asp-action="Edit" class="mx-sm-5">
+        <h3 class="text-danger">Edit product</h3>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="TruyenId" />
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">Nhập tên:</label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-control" asp-for="TenTruyen" />
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">Chú thích:</label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-control" asp-for="ChuThich" />
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">Trạng Thái:</label>
+            </div>
+            <div class="col-sm-8">
+                <select class="form-select" asp-for="TrangThai">
+                    <option value="" aria-disabled="true">--Please choose category--</option>
+                    <option value="HoanThanh">Hoàn Thành</option>
+                    <option value="ChuaHoanThanh">Chưa Hoàn Thành</option>
+                </select>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">Thể loại:</label>
+            </div>
+            <div class="col-sm-8">
+                <select class="form-select" asp-for="TheLoai">
+                    <option value="" aria-disabled="true">--Please choose category--</option>
+                    <option value="XuyenNhanh">Xuyên Nhanh</option>
+                    <option value="NgonTinh">Ngôn tình</option>
+                    <option value="NguyenSang">Nguyên sang</option>
+                    <option value="NamSinh">Nam sinh</option>
+                </select>
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">Số chươngw:</label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-control" asp-for="SoChuong" />
+            </div>
+        </div>
+        <div class="row m-1">
+            <div class="col-sm-4">
+                <label class="col-form-label">ImageUrl:</label>
+            </div>
+            <div class="col-sm-8">
+                <input class="form-control" asp-for="Photo" type="file" />
+            </div>
+        </div>
+        <div class="text-center m-1">
+            <button type="submit" class="btn btn-primary m-1">Save</button>
+            <a class="btn btn-warning m-1" asp-action="Index" asp-controller="Admin">Cancel</a>
+        </div>
+    </form>
+</div>
