@@ -14,9 +14,10 @@
                 @Model.TenTruyen
             </h3>
             <p class="card-text">
-                @Model.TrangThai
+                Trạng thái: @Model.TrangThai
             </p>
             <p class="card-text">
+                <a>Thể loại:</a>
                 <a asp-action="List" asp-controller="Truyen" asp-route-theloai="@Model.TheLoai">
                     @Model.TheLoai
                 </a>
