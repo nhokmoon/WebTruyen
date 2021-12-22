@@ -1,0 +1,37 @@
+﻿@model TruyenListViewModel
+
+<h2>Danh sách truyện</h2>
+
+<div class="row">
+    @foreach (var p in Model.Truyens)
+    {
+        var PhotoPath = "/images/" + p.ImageUrl;
+
+        <div class="card col-3">
+            <a asp-action="Details" asp-controller="Truyen" asp-route-TruyenId="@p.TruyenId">
+                <img class="card-img-top rounded" src="@PhotoPath" alt="không có hình"/>
+            </a>
+            <div class="card-body">
+                <h3 class="card-title">
+                    @p.TenTruyen
+                </h3>
+                <p class="card-text">
+                    Trạng Thái: @p.TrangThai
+                </p>
+                <p class="card-text">
+                    Thể loại: <a asp-action="List" asp-controller="Truyen" asp-route-theloai="@p.TheLoai">
+                        @p.TheLoai
+                    </a>
+                </p>
+                <p class="card-text badge badge-pill badge-primary">
+                    @p.SoChuong chuong
+                </p>
+                <p>
+                    <a class="btn btn-info" asp-action="Details" asp-controller="Truyen" asp-route-truyenId="@p.TruyenId">
+                        Xem chi tiết
+                    </a>
+                </p>
+            </div>
+        </div>
+    }
+</div>

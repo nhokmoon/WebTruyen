@@ -23,5 +23,23 @@ namespace WebTruyen.Controllers
         {
             return View(truyenRepository.Truyens.FirstOrDefault(p=>p.TruyenId==truyenId));
         }
+
+        public ViewResult searchName(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                return View(new TruyenListViewModel()
+                {
+                    Truyens = truyenRepository.Truyens.Where(p=>p.TenTruyen.Contains(name)).OrderBy(p=>p.TruyenId),
+                });
+            }
+            else
+            {
+                return View(new TruyenListViewModel()
+                {
+                    Truyens = truyenRepository.Truyens.ToList(),
+                });
+            }
+        }
     }
 }
